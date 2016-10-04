@@ -1,5 +1,5 @@
 {
-  "name": "nba-client",
+  "name": "nba-stats-client",
   "version": "0.0.1",
   "description": "Client for the NBA Stats API",
   "scripts": {
