@@ -5,6 +5,10 @@ import moment from 'moment';
 
 export default class Client {
 
+  static getDateStringFormat() {
+    return 'YYYYMMDD';
+  }
+
   static getBaseUri() {
     return 'http://data.nba.com';
   }
@@ -18,7 +22,7 @@ export default class Client {
     return {
       uri: uri,
       headers: Client.getHeaders(),
-      json: true
+      json: true,
     };
   }
 
@@ -28,27 +32,76 @@ export default class Client {
       .catch(err => console.log(err));
   }
 
+  static getGamesUriFromDateString(dateString) {
+    if (!Client.isDateStringValid(dateString)) {
+      throw new Error('invalid dateString');
+    }
+
+    return `${Client.getBaseUri()}/data/5s/json/cms/noseason/scoreboard/${dateString}/games.json`;
+  }
+
   static getGamesUri(year, month, day) {
-    return `${Client.getBaseUri()}/data/5s/json/cms/noseason/scoreboard/${Client.buildDateString(year, month, day)}/games.json`;
+    return Client.getGamesUriFromDateString(Client.buildDateString(year, month, day));
+  }
+
+  static getBoxScoreUriFromDateString(dateString, gameId) {
+    if (!Client.isDateStringValid(dateString)) {
+      throw new Error('invalid dateString');
+    }
+
+    return `${Client.getBaseUri()}/data/5s/json/cms/noseason/game/${dateString}/${gameId}/boxscore.json`;
   }
 
   static getBoxScoreUri(year, month, day, gameId){
-    return `${Client.getBaseUri()}/data/5s/json/cms/noseason/game/${Client.buildDateString(year, month, day)}/${gameId}/boxscore.json`;
+    return Client.getBoxScoreUriFromDateString(Client.buildDateString(year, month, day), gameId);
   }
 
   static getGames(year, month, day) {
     return Client.fetch(Client.getGamesUri(year, month, day));
   }
 
+  static getGamesFromDate(date) {
+    return Client.fetch(Client.getGamesUriFromDateString(Client.buildDateStringFromDate(date)));
+  }
+
+  static getGamesFromDateString(dateString) {
+    if (!Client.isDateStringValid(dateString)) {
+      throw new Error('invalid dateString');
+    }
+
+    return Client.fetch(Client.getGamesUriFromDateString(dateString));
+  }
+
   static getBoxScore(year, month, day, gameId) {
     return Client.fetch(Client.getBoxScoreUri(year, month, day, gameId));
   }
 
+  static getBoxScoreFromDate(date, gameId) {
+    return Client.fetch(Client.getBoxScoreUriFromDateString(Client.buildDateStringFromDate(date), gameId));
+  }
+
+  static getBoxScoreFromDateString(dateString, gameId) {
+    if (!Client.isDateStringValid(dateString)) {
+      throw new Error('invalid dateString');
+    }
+
+    return Client.fetch(Client.getBoxScoreUriFromDateString(dateString, gameId));
+  }
+
   static buildDateString(year, month, day) {
-    return moment().clone()
+    return moment()
             .year(year)
             .month(month - 1)
             .date(day)
-            .format('YYYYMMDD');
+            .format(Client.getDateStringFormat());
+  }
+
+  static buildDateStringFromDate(date) {
+    return moment(date).format(Client.getDateStringFormat());
+  }
+
+  static isDateStringValid(dateString) {
+    let parsedDate = moment(dateString, Client.getDateStringFormat());
+    return parsedDate.isValid();
   }
 };
