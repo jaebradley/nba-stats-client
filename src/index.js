@@ -56,6 +56,18 @@ export default class Client {
     return Client.getBoxScoreUriFromDateString(Client.buildDateString(year, month, day), gameId);
   }
 
+  static getPlayByPlayUriFromDateString(dateString, gameId) {
+    if (!Client.isDateStringValid(dateString)) {
+      throw new Error('invalid dateString');
+    }
+
+    return `${Client.getBaseUri()}/data/5s/json/cms/noseason/game/${dateString}/${gameId}/pbp_all.json`;
+  }
+
+  static getPlayByPlayUri(year, month, day, gameId) {
+    return Client.getPlayByPlayUriFromDateString(Client.buildDateString(year, month, day), gameId);
+  }
+
   static getGames(year, month, day) {
     return Client.fetch(Client.getGamesUri(year, month, day));
   }
@@ -86,6 +98,22 @@ export default class Client {
     }
 
     return Client.fetch(Client.getBoxScoreUriFromDateString(dateString, gameId));
+  }
+
+  static getPlayByPlay(year, month, day, gameId) {
+    return Client.fetch(Client.getPlayByPlayUri(year, month, day, gameId));
+  }
+
+  static getPlayByPlayFromDate(date, gameId) {
+    return Client.fetch(Client.getPlayByPlayUriFromDateString(Client.buildDateStringFromDate(date), gameId));
+  }
+
+  static getPlayByPlayFromDateString(dateString, gameId) {
+    if (!Client.isDateStringValid(dateString)) {
+      throw new Error('invalid dateString');
+    }
+
+    return Client.fetch(Client.getPlayByPlayUriFromDateString(dateString, gameId));
   }
 
   static buildDateString(year, month, day) {

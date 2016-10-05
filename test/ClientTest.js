@@ -4,6 +4,7 @@ import Client from '../src/index';
 
 import exampleScoreboard from './files/scoreboard.json';
 import exampleBoxScore from './files/boxscore.json';
+import examplePlayByPlay from './files/playbyplay.json';
 
 describe('Test Client', function() {
 
@@ -11,6 +12,7 @@ describe('Test Client', function() {
           'referer': 'http://stats.nba.com/scores/'};
   let expectedGamesUri = 'http://data.nba.com/data/5s/json/cms/noseason/scoreboard/20160503/games.json';
   let expectedBoxScoreUri = 'http://data.nba.com/data/5s/json/cms/noseason/game/20160508/0041500234/boxscore.json';
+  let expectedPlayByPlayUri = 'http://data.nba.com/data/5s/json/cms/noseason/game/20160508/0041500234/pbp_all.json';
   let gameId = '0041500234';
   let gameDateString = '20160503';
   let boxScoreDateString = '20160508';
@@ -59,6 +61,12 @@ describe('Test Client', function() {
     expect(() => Client.getBoxScoreUriFromDateString('jae', gameId)).to.throw(Error);
   });
 
+  it('tests play by play uri construction', function() {
+    expect(Client.getPlayByPlayUri(2016, 5, 8, gameId)).to.equal(expectedPlayByPlayUri);
+    expect(Client.getPlayByPlayUriFromDateString(boxScoreDateString, gameId)).to.equal(expectedPlayByPlayUri);
+    expect(() => Client.getPlayByPlayUriFromDateString('jae', gameId)).to.throw(Error);
+  });
+
   it('tests games fetch with arguments', function() {
     return Client.getGames(2016, 5, 3)
                  .then(response => expect(response).to.eql(exampleScoreboard));
@@ -87,5 +95,24 @@ describe('Test Client', function() {
   it('tests box score fetch', function() {
     return Client.getBoxScoreFromDateString(boxScoreDateString, gameId)
                  .then(response => expect(response).to.eql(exampleBoxScore));
+  });
+
+  it('tests play by play fetch with arguments', function() {
+    return Client.getPlayByPlay(2016, 5, 8, gameId)
+                 .then(response => expect(response).to.eql(examplePlayByPlay));
+  });
+
+  it('tests play by play fetch from date', function() {
+    return Client.getPlayByPlayFromDate(new Date(2016, 4, 8), gameId)
+                 .then(response => expect(response).to.eql(examplePlayByPlay));
+  });
+
+  it('tests play by play from date string', function() {
+    return Client.getPlayByPlayFromDateString(boxScoreDateString, gameId)
+                 .then(response => expect(response).to.eql(examplePlayByPlay));
+  });
+
+  it('tests play by play throws from bad date string', function() {
+    return expect(() =>Client.getPlayByPlayFromDateString('jae', gameId)).to.throw(Error);
   });
 });
