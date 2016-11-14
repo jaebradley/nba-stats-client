@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 
-import NbaStatsClient from '../src/index';
+import {NbaStatsClient} from '../src/index';
 
 import exampleScoreboard from './files/scoreboard.json';
 import exampleBoxScore from './files/boxscore.json';
