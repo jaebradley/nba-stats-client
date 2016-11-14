@@ -7,6 +7,7 @@
     "test": "npm run build && mocha --compilers js:babel-core/register",
     "coverage": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/.bin/_mocha -- --compilers js:babel-register ",
     "coveralls": "npm run-script coverage && node_modules/.bin/coveralls < coverage/lcov.info",
+    "build": "babel src --presets babel-preset-es2015 --out-dir build",
     "prepublish": "npm run compile",
     "compile": "babel --presets es2015,stage-0 -d build/ src/"
   },
