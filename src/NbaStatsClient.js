@@ -69,7 +69,7 @@ export default class NbaStatsClient {
   }
 
   static getGames(year, month, day) {
-    return Client.fetch(Client.getGamesUri(year, month, day));
+    return NbaStatsClient.fetch(NbaStatsClient.getGamesUri(year, month, day));
   }
 
   static getGamesFromDate(date) {

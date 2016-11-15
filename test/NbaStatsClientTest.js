@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 
-import {NbaStatsClient} from '../src/index';
+import NbaStatsClient from '../build/index';
 
 import exampleScoreboard from './files/scoreboard.json';
 import exampleBoxScore from './files/boxscore.json';
@@ -130,7 +130,7 @@ describe('Test Client', function() {
   });
 
   it('tests play by play throws from bad date string', function() {
-    return expect(() => NbaStatsClient.getPlayByPlayFromDateString('jae', gameId))
-                                      .to.throw(Error);
+    expect(() => NbaStatsClient.getPlayByPlayFromDateString('jae', gameId))
+                               .to.throw(Error);
   });
 });
