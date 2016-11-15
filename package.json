@@ -1,17 +1,19 @@
 {
   "name": "nba-stats-client",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Client for the NBA Stats API",
+  "files": "./build",
   "scripts": {
     "test": "npm run build && mocha --compilers js:babel-core/register",
     "coverage": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/.bin/_mocha -- --compilers js:babel-register ",
     "coveralls": "npm run-script coverage && node_modules/.bin/coveralls < coverage/lcov.info",
     "build": "babel src --presets babel-preset-es2015 --out-dir build",
-    "prepublish": "npm run build"
+    "prepublish": "npm run compile",
+    "compile": "babel --presets es2015,stage-0 -d build/ src/"
   },
   "author": "Jae Bradley",
   "license": "MIT",
-  "preferGlobal": true,
+  "preferGlobal": false,
   "main": "./build/index.js",
   "dependencies": {
     "moment": "^2.15.1",
@@ -34,6 +36,7 @@
     "babel-istanbul": "0.8.0"
   },
   "directories": {
+    "lib": "build",
     "test": "test"
   },
   "repository": {
