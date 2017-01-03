@@ -1,6 +1,6 @@
 {
   "name": "nba-stats-client",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Client for the NBA Stats API",
   "files": "./build",
   "scripts": {
@@ -17,8 +17,9 @@
   "main": "./build/index.js",
   "dependencies": {
     "moment": "^2.15.1",
-    "request-promise": "^4.0.2",
-    "enumify": "^1.0.4"
+    "request-promise": "^4.1.1",
+    "enumify": "^1.0.4",
+    "request": "^2.79.0"
   },
   "devDependencies": {
     "chai": "3.5.0",
