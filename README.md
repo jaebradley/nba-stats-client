@@ -24,6 +24,9 @@ import Client from 'nba-stats-client';
 Client.getGames(2016, 1, 1);
 Client.getGamesFromDate(new Date(2016, 1, 1));
 ```
+
+[Output](https://raw.githubusercontent.com/jaebradley/nba-client/master/examples/scoreboard.json)
+
 ### Get Box Score
 
 `Client.getBoxScore(year, month, day, gameId)`
@@ -45,6 +48,8 @@ Client.getBoxScore(2016, 1, 1, '0041500234');
 Client.getBoxScoreFromDate(new Date(2016, 1, 1), '0041500234');
 ```
 
+[Output](https://raw.githubusercontent.com/jaebradley/nba-client/master/examples/boxscore.json)
+
 ### Get Play By Play
 
 `Client.getPlayByPlay(year, month, day, gameId)`
@@ -65,3 +70,5 @@ import Client from 'nba-stats-client';
 Client.getPlayByPlay(2016, 1, 1, '0041500234');
 Client.getPlayByPlayFromDate(new Date(2016, 1, 1), '0041500234');
 ```
+
+[Output](https://raw.githubusercontent.com/jaebradley/nba-client/master/examples/playbyplay.json)
