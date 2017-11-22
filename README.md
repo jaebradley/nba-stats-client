@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/jaebradley/nba-client.svg?branch=master)](https://travis-ci.org/jaebradley/nba-client)
 [![Coverage Status](https://coveralls.io/repos/github/jaebradley/nba-client/badge.svg?branch=master)](https://coveralls.io/github/jaebradley/nba-client?branch=master)
-[![npm version](https://badge.fury.io/js/nba-stats-client.svg)](https://badge.fury.io/js/nba-stats-client)
+[![npm](https://img.shields.io/npm/v/nba-stats-client.svg)](https://www.npmjs.com/package/nba-stats-client)
+[![npm_total_downloads](https://img.shields.io/npm/dt/nba-stats-client.svg)](https://www.npmjs.com/package/nba-stats-client)
 
 ## API
 
