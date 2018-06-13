@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaebradley/nba-client.git"
+    "url": "git+https://github.com/jaebradley/nba-stats-client.git"
   },
   "keywords": [
     "nba",
@@ -35,9 +35,9 @@
   "author": "jae.b.bradley@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jaebradley/nba-client/issues"
+    "url": "https://github.com/jaebradley/nba-stats-client/issues"
   },
-  "homepage": "https://github.com/jaebradley/nba-client#readme",
+  "homepage": "https://github.com/jaebradley/nba-stats-client#readme",
   "jest": {
     "testEnvironment": "node",
     "testPathIgnorePatterns": [
