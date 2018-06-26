@@ -2,7 +2,7 @@ import {
   getGames,
   getBoxScore,
   getPlayByPlay,
-} from './';
+} from '.';
 
 describe('client', () => {
   describe('integration test', () => {
