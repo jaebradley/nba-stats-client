@@ -15,7 +15,7 @@ const getFormattedDate = ({ year, month, day }) => {
 const getGames = ({ year, month, day }) => HTTPClient({
   method: 'GET',
   url: `/data/5s/json/cms/noseason/scoreboard/${getFormattedDate({ year, month, day })}/games.json`,
-}).then(response => response.data);
+}).then((response) => response.data);
 
 const getBoxScore = ({
   year,
@@ -25,7 +25,7 @@ const getBoxScore = ({
 }) => HTTPClient({
   method: 'GET',
   url: `/data/5s/json/cms/noseason/game/${getFormattedDate({ year, month, day })}/${gameId}/boxscore.json`,
-}).then(response => response.data);
+}).then((response) => response.data);
 
 const getPlayByPlay = ({
   year,
@@ -35,7 +35,7 @@ const getPlayByPlay = ({
 }) => HTTPClient({
   method: 'GET',
   url: `/data/5s/json/cms/noseason/game/${getFormattedDate({ year, month, day })}/${gameId}/pbp_all.json`,
-}).then(response => response.data);
+}).then((response) => response.data);
 
 export {
   getGames,
