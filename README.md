@@ -4,7 +4,9 @@
 [![Build Status](https://travis-ci.org/jaebradley/nba-stats-client.svg?branch=master)](https://travis-ci.org/jaebradley/nba-stats-client)
 [![codecov](https://codecov.io/gh/jaebradley/nba-stats-client/branch/master/graph/badge.svg)](https://codecov.io/gh/jaebradley/nba-stats-client)
 [![npm](https://img.shields.io/npm/v/nba-stats-client.svg)](https://www.npmjs.com/package/nba-stats-client)
-[![npm_total_downloads](https://img.shields.io/npm/dt/nba-stats-client.svg)](https://www.npmjs.com/package/nba-stats-client) 
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/nba-stats-client)
+[![npm-total-downloads](https://img.shields.io/npm/dt/nba-stats-client.svg)](https://www.npmjs.com/package/nba-stats-client)
+![GitHub](https://img.shields.io/github/license/jaebradley/nba-stats-client)
 
 ## Installation
 
