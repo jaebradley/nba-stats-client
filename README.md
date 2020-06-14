@@ -1,5 +1,6 @@
 # NBA Stats Client
 
+![NBA Stats Client](https://github.com/jaebradley/nba-stats-client/workflows/NBA%20Stats%20Client/badge.svg)
 [![codecov](https://codecov.io/gh/jaebradley/nba-stats-client/branch/master/graph/badge.svg)](https://codecov.io/gh/jaebradley/nba-stats-client)
 [![npm](https://img.shields.io/npm/v/nba-stats-client.svg)](https://www.npmjs.com/package/nba-stats-client)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nba-stats-client)
