@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/jaebradley/nba-stats-client#readme",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.20.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
